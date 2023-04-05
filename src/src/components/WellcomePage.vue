@@ -219,11 +219,12 @@
 
 <script>
 export default{
-    props: ['pages'],
+    props: ['pages', 'setLocalQuestions'],
     methods:{
         enterWithoutName(pages){
             pages.wellcomePage = false;
             pages.quizePage = true;
+            this.setLocalQuestions();
         }
     },
     data(){
