@@ -3,7 +3,7 @@
         <div class="arrow" @click="changeQuestion(-1)" :class="{'hide': currentQuestionIndex - 1 < 0}">
             <img src="../../public/arrow.png" alt="arrow">
         </div>
-        <div class="finish" @click="endTrue()" :class="{'hide': answerGiven < 5}">
+        <div class="finish" @click="pages.quizePage = false, pages.resultPage = true" :class="{'hide': answerGiven < 5}">
             <div class="button-blob">
                 <div></div>
                 <div></div>
@@ -19,7 +19,7 @@
 
 <script>
 export default{
-    props: ['currentQuestionIndex', 'end', 'changeQuestion', 'answerGiven', 'endTrue'],
+    props: ['currentQuestionIndex', 'changeQuestion', 'answerGiven', 'pages'],
 }
 </script>
 

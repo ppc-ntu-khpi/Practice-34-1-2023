@@ -12,7 +12,7 @@
         <div class="content">
             <QuizeProgressBar :answer-given="answerGiven"></QuizeProgressBar>
             <Questions :questions="questions" :get-result="getResult" :current-question-index="currentQuestionIndex"></Questions>
-            <QuizeNavigation class="navigation" :end="end" :change-question="changeQuestion" :current-question-index="currentQuestionIndex" :answer-given="answerGiven" :end-true="endTrue"></QuizeNavigation>
+            <QuizeNavigation class="navigation" :pages="pages" :change-question="changeQuestion" :current-question-index="currentQuestionIndex" :answer-given="answerGiven"></QuizeNavigation>
         </div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
             <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
@@ -45,10 +45,9 @@ export default{
             this.end = true;
         }
     },
-    props: ['questions', 'getResult', 'answerGiven'],
+    props: ['questions', 'getResult', 'answerGiven', 'pages'],
     data(){
         return{
-            end: false,
             currentQuestionIndex: 0,
         }
     }

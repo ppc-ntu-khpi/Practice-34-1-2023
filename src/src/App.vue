@@ -1,30 +1,48 @@
 <template>
   <WellcomePage @userdata="userData" v-if="pages.wellcomePage" :pages="pages" :set-local-questions="setLocalQuestions"></WellcomePage>
-  <Quize v-if="pages.quizePage" :questions="localQuestions" :get-result="getResult" :answer-given="answerGiven"></Quize>
+  <Quize v-if="pages.quizePage" :pages="pages" :questions="localQuestions" :get-result="getResult" :answer-given="answerGiven"></Quize>
+  <ResultQuize v-if="pages.resultPage" :firstName="firstName" :pages="pages" :zero-answer-given="zeroAnswerGiven" :questions="localQuestions" :set-local-questions="setLocalQuestions"></ResultQuize>
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  font-family: Inter;
-}
-#app{
-  overflow: hidden;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    font-family: Inter;
+  }
+  #app{
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar{
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track{
+    background: #ffffff;
+  }
+  ::-webkit-scrollbar-thumb{
+    background: linear-gradient(#8a4c56, #bd606f);
+      border: 4px solid #ffffff;
+    border-radius: 5px;
+    transition: 300ms;
+  }
 </style>
 
 <script>
 import WellcomePage from './components/WellcomePage.vue';
 import Quize from './components/Quize.vue';
+import ResultQuize from './components/ResultQuize.vue';
 
 export default {
   components:{
     WellcomePage,
     Quize,
-  },
+    ResultQuize,
+},
   methods:{
+    zeroAnswerGiven(){
+      this.answerGiven = 0;
+    },
     setLocalQuestions(){
       let currentIndex = this.globalQuestions.length,  randomIndex;
       while (currentIndex != 0) {
@@ -33,6 +51,8 @@ export default {
         [this.globalQuestions[currentIndex], this.globalQuestions[randomIndex]] = [this.globalQuestions[randomIndex], this.globalQuestions[currentIndex]];
       }
       for (let i = 0; i < 5; i++) {
+        this.globalQuestions[i].result = "";
+        this.globalQuestions[i].userAnswerIndex = null; 
         this.localQuestions[i] = this.globalQuestions[i];
       }
     },
@@ -48,7 +68,6 @@ export default {
       let question = this.localQuestions[questionIndex];
       if (question.userAnswerIndex == null) {
           this.answerGiven++;
-          console.log(this.answerGiven);
           question.userAnswerIndex = answerIndex;
           question.showResult = true;
           if (question.rightAnswerIndex == answerIndex) {
