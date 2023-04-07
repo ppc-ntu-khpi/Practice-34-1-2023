@@ -38,7 +38,7 @@ export default {
     WellcomePage,
     Quize,
     ResultQuize,
-},
+  },
   methods:{
     zeroAnswerGiven(){
       this.answerGiven = 0;
