@@ -3,7 +3,7 @@
         <div class="question-info">
             <div class="question-text">{{question.question}}</div>
             <div class="question-img">
-                <img :src="'../' + question.image" alt="question-img"/>
+                <img :src="question.image" alt="question-img"/>
             </div>
         </div>
         <div class="question-answers">
@@ -16,8 +16,8 @@
                 </div>
             </button>
         </div>
-        <div class="result" :class="resultClasses(questionIndex)">
-            <span>{{ question.result }}</span>
+        <div class="result" :class="resultClasses(questionIndex)" @click="question.showResult=false">
+            <span v-html="question.result"></span>
             <button @click="question.showResult=false">
                 <img src="../../public/close.png" alt="Close">
             </button>
