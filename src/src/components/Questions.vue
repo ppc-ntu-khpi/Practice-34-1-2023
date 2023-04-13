@@ -16,9 +16,9 @@
                 </div>
             </button>
         </div>
-        <div class="result" :class="resultClasses(questionIndex)" @click="question.showResult=false">
+        <div class="result" :class="resultClasses(questionIndex)" @click="close(question)">
             <span v-html="question.result"></span>
-            <button @click="question.showResult=false">
+            <button @click="close(question)">
                 <img src="../../public/close.png" alt="Close">
             </button>
         </div>
@@ -28,6 +28,7 @@
 <script>
 export default{
     methods:{
+        
         buttonClasses(questionIndex, answerIndex){
             let question = this.questions[questionIndex];
             if (question.userAnswerIndex != null) {
@@ -53,7 +54,7 @@ export default{
             }
         }
     },
-    props: ['questions', 'getResult', 'currentQuestionIndex'],
+    props: ['questions', 'getResult', 'currentQuestionIndex', 'close'],
 }
 </script>
 
@@ -194,6 +195,7 @@ export default{
     .question{
         display: flex;
         width: 100%;
+        max-width: 1900px;
         flex-direction: column;
         align-items: center;
         justify-content: center;

@@ -1,6 +1,20 @@
 <template>
     <div class="result-content">
         <div class="rect" >
+            <ul class="circles  reverse">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div >
+        <div class="rect" >
             <ul class="circles">
                 <li></li>
                 <li></li>
@@ -42,6 +56,13 @@
         <div class="behind result-answers">
             <div class="result-answer" :class="resultAnswerClasses(question)" v-for="question in questions">{{question.question}}</div>
         </div>
+        <div class="footer behind">
+            <a href="https://sites.google.com/polytechnic.co.cc/main/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0/%D1%81%D0%BF%D0%B5%D1%86%D1%96%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%97?authuser=0#h.ho48gail8chq"><img class="logo" src="../../public/logo.png" alt="logo"/></a>
+            <div>
+                <span>Створено студентами ППФК.</span>
+                <span>Команда "Хохотунчики розробники" 2023 ©.</span>
+            </div>
+        </div>
     </div>
     
 </template>
@@ -77,6 +98,27 @@ export default{
 </script>
 
 <style scoped>
+    .footer{
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        color: white;
+        font-size: 15px;
+    }
+    .footer div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    .footer img{
+        max-width: 50px;
+        margin: 5px;
+    }
     .behind{
         position: relative;
         z-index: 2;
@@ -88,12 +130,15 @@ export default{
         z-index: 1;
     }
     .circles{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .reverse{
+        transform: rotate(180deg);
     }
 
     .circles li{
@@ -103,7 +148,7 @@ export default{
         width: 20px;
         height: 20px;
         background: rgba(235, 59, 122, 0.3);
-        animation: animate 25s linear infinite;
+        animation: animate 10s linear infinite;
         bottom: -150px;
         
     }
@@ -121,7 +166,7 @@ export default{
         width: 20px;
         height: 20px;
         animation-delay: 2s;
-        animation-duration: 12s;
+        animation-duration: 5s;
         background: rgba(59, 235, 168, 0.3);
     }
 
@@ -137,7 +182,7 @@ export default{
         width: 60px;
         height: 60px;
         animation-delay: 0s;
-        animation-duration: 18s;
+        animation-duration: 5s;
         background: rgba(59, 235, 168, 0.3);
     }
 
@@ -169,7 +214,7 @@ export default{
         width: 25px;
         height: 25px;
         animation-delay: 15s;
-        animation-duration: 45s;
+        animation-duration: 20s;
     }
 
     .circles li:nth-child(9){

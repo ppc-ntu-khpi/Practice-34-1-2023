@@ -63,7 +63,8 @@ export default{
         overflow: hidden;
         padding: 15px;
         color: white;
-        background-color: #E1A835;
+        background-color: #e16035;
+        border: 6px white solid;
         font-size: 20px;
         border-radius: 10px;
         transition: 300ms;
@@ -80,21 +81,34 @@ export default{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: #e1a83553;
+        background-color: #ffe05569;
     }
     .arrow{
         transition: 300ms;
         position: relative;
-        width: 40px;
-        height: 40px;
+        width: 50px;
+        height: 50px;
+        border: 6px white solid;
+        margin: 5px;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #E1A835;
+        background-color: #e16035;
+        animation: visible 3s infinite;
         padding: 5px;
-        margin: 10px;
         border-radius: 50%;
         overflow: hidden;
+    }
+    @keyframes visible{
+        0%{
+            background-color: #e16035;
+        }
+        50%{
+            background-color: #ff8282;
+        }
+        100%{
+            background-color: #e16035;
+        }
     }
     .arrow:hover{
         cursor: pointer;

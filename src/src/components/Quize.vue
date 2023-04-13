@@ -10,8 +10,8 @@
             </g>
         </svg>
         <div class="content">
-            <QuizeProgressBar :answer-given="answerGiven"></QuizeProgressBar>
-            <Questions :questions="questions" :get-result="getResult" :current-question-index="currentQuestionIndex"></Questions>
+            <QuizeProgressBar class="progress" :answer-given="answerGiven"></QuizeProgressBar>
+            <Questions :questions="questions" :get-result="getResult" :current-question-index="currentQuestionIndex" :close="close"></Questions>
             <QuizeNavigation class="navigation" :pages="pages" :change-question="changeQuestion" :current-question-index="currentQuestionIndex" :answer-given="answerGiven"></QuizeNavigation>
         </div>
         <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -38,6 +38,12 @@ export default{
         QuizeProgressBar,
     },
     methods:{
+        close(question){
+            question.showResult = false;
+            if ((this.currentQuestionIndex + 1) < 5) {
+                this.currentQuestionIndex++
+            }
+        },
         changeQuestion(number){
             this.currentQuestionIndex += number;
         },
@@ -99,10 +105,21 @@ export default{
         top: 0;
         transform: rotate(180deg);
     }
+    .progress{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
     .content{
         z-index: 2;
         width: 100%;
-        padding-bottom: 70px;
+        min-height: calc(100vh - 130px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 90px;
     }
     .quize{
         position: relative;

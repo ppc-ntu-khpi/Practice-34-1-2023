@@ -2,9 +2,9 @@
     <div class="wellcome_full-screan">
         <img class="back-img" src="../../public/wellcome-image.png" alt="Image"/>
         <span class="wellcome_text">
-            <a href="https://sites.google.com/polytechnic.co.cc/main/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0/%D1%81%D0%BF%D0%B5%D1%86%D1%96%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%97?authuser=0#h.ho48gail8chq"><img class="logo" src="../../public/logo.png" alt="logo"/></a><br/>
-            <span class="orange">Ласкаво просимо до нашої вікторини!</span><br/>
-            <a href="https://github.com/Dokji/Practice/wiki/Site-Doc" class="link_cool">Інструкція з використання</a><br/>
+            <a href="https://sites.google.com/polytechnic.co.cc/main/%D0%B3%D0%BE%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0/%D1%81%D0%BF%D0%B5%D1%86%D1%96%D0%B0%D0%BB%D1%96%D0%B7%D0%B0%D1%86%D1%96%D1%97?authuser=0#h.ho48gail8chq"><img class="logo" src="../../public/logo.png" alt="logo"/></a>
+            <a href="https://github.com/Dokji/Practice/wiki/Site-Doc"><img class="logo" src="../../public/question.png" alt="logo"/></a><br/>
+            <span class="orange">Ласкаво просимо до нашої вікторини!</span><br/><br/>
             Ви отримаєте п’ять запитань, які ми випадковим чином відібрали з десяти можливих.
             Кожен студент нашої спеціальності без заминки відповість на ці питання. Цікаво - а чи впораєтесь ви?<br/><br/>
 
@@ -189,8 +189,8 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: center;;
         background-color: rgba(50, 71, 143, 0.92);
     }
     .back-img{
