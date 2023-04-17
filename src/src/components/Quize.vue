@@ -40,9 +40,6 @@ export default{
     methods:{
         close(question){
             question.showResult = false;
-            if ((this.currentQuestionIndex + 1) < 5) {
-                this.currentQuestionIndex++
-            }
         },
         changeQuestion(number){
             this.currentQuestionIndex += number;
