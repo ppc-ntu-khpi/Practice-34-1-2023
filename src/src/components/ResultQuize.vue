@@ -127,6 +127,8 @@ export default{
         position: absolute;
         width: 100%;
         height: 100%;
+        margin-left: -20px;
+        margin-top: -20px;
         z-index: 1;
     }
     .circles{

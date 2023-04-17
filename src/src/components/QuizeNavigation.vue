@@ -129,13 +129,16 @@ export default{
         z-index: 1;
         transition: 300ms;
     }
-    .arrow:hover::after{
-        top: 0;
-    }
+    
     .rev{
         transform: rotate(180deg);
     }
     .hide{
         transform: translateY(100px);
+    }
+    @media (hover: hover) {
+        .arrow:hover::after{
+            top: 0;
+        }
     }
 </style>

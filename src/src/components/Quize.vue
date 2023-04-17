@@ -63,6 +63,8 @@ export default{
         position: fixed;
         bottom: 0;
         left: 0;
+        z-index: 10;
+
     }
     .parallax > use{
         animation: wavesMove 25s cubic-bezier(.55, .5, .45, .5) infinite;

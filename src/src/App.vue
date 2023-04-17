@@ -1,4 +1,4 @@
-<template>
+  <template>
   <WellcomePage @userdata="userData" v-if="pages.wellcomePage" :pages="pages" :set-local-questions="setLocalQuestions"></WellcomePage>
   <Quize v-if="pages.quizePage" :pages="pages" :questions="localQuestions" :get-result="getResult" :answer-given="answerGiven"></Quize>
   <ResultQuize v-if="pages.resultPage" :firstName="firstName" :pages="pages" :zero-answer-given="zeroAnswerGiven" :questions="localQuestions" :set-local-questions="setLocalQuestions"></ResultQuize>
